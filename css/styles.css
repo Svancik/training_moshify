@@ -7,7 +7,10 @@
   --color-accent: #ff3400;
   --color-headings: #1b0760;
   --color-body: #918ca4;
+  --minWidth: 1024px;
 }
+
+/* Typography */
 
 html {
   /* Níže stanovíme font size na 10px */
@@ -57,5 +60,33 @@ p {
   }
   h3 {
     font-size: 2.4rem;
+  }
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.link-arrow {
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s;
+}
+
+/* Kódem níže selektujeme element after (šipku -->) při hoveru */
+.link-arrow:hover::after {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
   }
 }
