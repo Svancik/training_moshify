@@ -460,3 +460,22 @@ a {
     font-size: 1.6rem;
   }
 }
+
+/* Grids */
+
+.grid {
+  display: grid;
+}
+
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    /* Kód níže si vydělí veškerý dostupný prostor na obrazovce, vydělí ho dvěmi a rozdělí do dvou sloupců, mezery oddělují sloupce */
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
