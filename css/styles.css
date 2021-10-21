@@ -268,6 +268,11 @@ a {
   color: white;
 }
 
+.button--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 @media screen and (min-width: 1024px) {
   .button {
     font-size: 1.5rem;
@@ -530,5 +535,47 @@ a {
 
   .testimonial .quote {
     margin-left: 6rem;
+  }
+}
+
+/* Callouts */
+
+.callout {
+  padding: 4rem;
+  border-radius: 5px;
+}
+
+.callout--primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.callout__heading {
+  color: white;
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.callout .button {
+  /* Zde používáme self protože to platí na objekt v gridu a ne na vícero položek v gridu */
+  justify-self: center;
+  align-self: center;
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .callout .grid--1x2 {
+    /* Níže: 1fr = 1 zlomek dostupného místa. auto = že column bude akorát široký jako element uvnitř něj */
+    grid-template-columns: 1fr auto;
+  }
+  .callout__content {
+    text-align: left;
+  }
+  .callout .btn {
+    justify-self: start;
+    margin: 0 2rem;
   }
 }
