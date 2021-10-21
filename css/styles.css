@@ -176,6 +176,15 @@ a {
   fill: var(--color-primary);
 }
 
+.icon--white {
+  fill: white;
+}
+
+.icon--small {
+  width: 30px;
+  height: 30px;
+}
+
 .icon-container {
   background: #f3f9fa;
   width: 64px;
@@ -184,6 +193,10 @@ a {
   border-radius: 100%;
   align-items: center;
   justify-content: center;
+}
+
+.icon-container--accent {
+  background-color: var(--color-accent);
 }
 
 /* Buttons */
@@ -477,5 +490,45 @@ a {
 @media screen and (min-width: 1024px) {
   .grid--1x3 {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Testimonials */
+
+.testimonial {
+  padding: 3rem;
+}
+
+.testimonial__image {
+  /* Budeme dávat absolute position pro fixaci ikony, k tomu je nutné aby byl kontejner relative */
+  position: relative;
+}
+
+/* Níže říkáme že musí být obrázek přímo v testimonial image (ne někde zanořen) */
+.testimonial__image > img {
+  width: 100%;
+}
+
+.testimonial__image > .icon-container {
+  position: absolute;
+  top: 3rem;
+  /*  Width ikony je 64px, když to zarovnáme doprava a odečteme 32px (polovinu width), tak bude ikona na středu mezi containery */
+  right: -32px;
+}
+
+@media screen and (max-width: 767px) {
+  .testimonial__image > .icon-container {
+    right: -30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .testimonial .quote,
+  .testimonial .quote__author {
+    font-size: 2.4rem;
+  }
+
+  .testimonial .quote {
+    margin-left: 6rem;
   }
 }
