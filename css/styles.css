@@ -177,7 +177,7 @@ a {
 }
 
 .icon--white {
-  fill: white;
+  fill: #fff;
 }
 
 .icon--small {
@@ -578,4 +578,90 @@ a {
     justify-self: start;
     margin: 0 2rem;
   }
+}
+
+/* Collapsibles */
+
+.collapsible__header {
+  display: flex;
+  /* justify-content: space-between => zarovná elementy na 2 různé strany od sebe ke krajům */
+  justify-content: space-between;
+}
+
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-90deg);
+  transition: transform 0.3s;
+}
+
+.collapsible__content {
+  /* display: none; - použilo se dřív ale s tím nelze provézt smooth animaci 
+                    - snížil se max-height na 0 a overflow hidden - tím se element zneviditelnil */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* Níže se zanimují všechny změny vlastností pomocí transition: all */
+  transition: all 0.3s;
+}
+
+/* expanded níže známená že stylujeme jak to bude vypadat po rozkliknutí */
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content {
+  /* Element zviditelníme tím že maximum height zvedneme z nuly na 100 a dáme opacity 1.
+  max-height není height. Reálně bude height dle obsahu elementu a ne přes celou obrazovku jako by tomu bylo u height */
+  max-height: 100vh;
+  opacity: 1;
+}
+
+/* Blocks */
+
+.container {
+  max-width: 1140px;
+  /* Margin ze shora - vertikálně je 0 a horizontálně je automaticky (automaticky se vyrovná dle dostupného místa)*/
+  margin: 0 auto;
+}
+
+.block {
+  /* Níže používáme proměnou padding vertical protože řešíme odsazení od spodku bloku. 
+  Dáváme sem proměnou protože v momentě kdy nastavíme 2 fixní hodnoty tak bychom museli provádět změnu ve 2 místech.
+  Takhle máme jednu proměnnou která se používá na 2 místech (níže a block--skewed   */
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block__header {
+  text-align: center;
+}
+
+.block__heading {
+  margin-top: 0;
+}
+
+.block--dark {
+  background: #000;
+  color: #7b858b;
+}
+
+.block--dark .block__heading {
+  color: #fff;
+}
+
+.block--skewed-right {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
+}
+
+.block--skewed {
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.block--skewed-left {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 00% 100%);
 }
