@@ -665,3 +665,77 @@ a {
 .block--skewed-left {
   clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 00% 100%);
 }
+
+/* Navigation Bar */
+
+.nav {
+  background: #000;
+  display: flex;
+  /* Na mobilu je v navigačním panelu logo na jedné straně a menu na druhé (nejdřív programujeme pro mobil) */
+  justify-content: space-between;
+  /* flex-wrap nám zabalí obsah a tím se nám nav__list který zabírá 100% šířku přesune na další řádek */
+  flex-wrap: wrap;
+  padding: 0 1rem;
+  /* Zarovnáme pomocí align-items vertikálně logo */
+  align-items: center;
+}
+
+/* šlo použít .nav .list = "NESTING" ale je spíše doporučeno vytvořit speciální třídu */
+
+.nav__list {
+  width: 100%;
+  margin: 0;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+/* Níže nevytváříme speciální třídu protože v navigačnim panelu budeme mít vždy element a (anchor) a to nebudeme měnit */
+.nav__item > a {
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: #fff;
+}
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+/* .nav.collapsible--expanded znamená že musí mít class jak .nav tak .collapsible--expanded
+(.collapsible--expanded se nastaví pomocí scriptu automaticky po kliknutí na collapsible element) */
+.nav.collapsible--expanded .nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+.nav__brand {
+  /* Pomocí transform níže posouváme obrázek(logo) o 5px níže aby byl vycentrován (má defaulntě nastavené rozměry) */
+  transform: translateY(5px);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex;
+    font-size: 1.6rem;
+    /* Pomocí max-height a opacity jsme zviditelni navigační panel, který byl neviditelný při zobrazení na mobilech */
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}
