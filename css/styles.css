@@ -2,6 +2,9 @@
 /* TODO: */
 /* FIXME: */
 
+/* Níže jsme provedli import pro zvýšení performance stránky aby se nemuseli načítat separátně 2 css soubory (nenačítají se v index) */
+@import ".normalize.css";
+
 :root {
   --color-primary: #2584ff;
   --color-secondary: #00d9ff;
@@ -1056,7 +1059,11 @@ BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před je
 
       Je nutné v 3. kroku "Create a new site" napsat Build command "parcel build index.html" a Publish directory "dist"
 
-      CHYBA PŘI DEPLOYING STRÁNKU NA NETLIFY - DOŘEŠIT!!!
+      Na netlify byla chyba jež se odstranila použitím commandu "parcel build --no-minify index.html" po té co se 
+      instalovala nižší verze parcelu- "npm i -D parcel-bundler@1.12.3"
+      
+      Na odkazu níže lze zjistit výkon naší stráky (performance)
+      https://web.dev/measure/
 
-      https://app.netlify.com/sites/agitated-fermat-46d7a2/deploys/61745152387f630156056fb6
+      Do té stránky můžeme vložit NETLIFY odkaz - viz mnou vytvořený - https://tutorialmoshify.netlify.app/ 
 */

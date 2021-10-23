@@ -25,7 +25,6 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!-- Používáme knihovnu .js animací - k tomu je link rel výše a vložený script
@@ -36,7 +35,10 @@
     <header>
       <nav class="nav collapsible">
         <!-- Pomocí lomítka odkazuje na domovskou kořenovou stránku, po kliknutí se tam dostane uživatel -->
-        <a class="nav__brand" href="/"><img src="images/logo.svg" alt="" /></a>
+        <!-- aria-label vkládáme kvůli performance reportu kde je po nás vyžadován nějaký text pro link -->
+        <a aria-label="Moshify " class="nav__brand" href="/"
+          ><img src="images/logo.svg" alt=""
+        /></a>
 
         <svg class="icon icon--white nav__toggler">
           <use href="images/sprite.svg#menu"></use>
