@@ -993,4 +993,45 @@ BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před je
         npm => Node Package Manager (NPM) - pomocí toho lze instalovat balíčky třetích stran (tzv. "dependancies" neboli závislosti
 
         npim init -y => inicializace (pomoci -y přeskočíme konfiguraci)
+
+        Před provedením npim init -y je nutné aby složka ve které se nacházíme neobsahovala mezery (možná i velká písmena)
+
+        npm i -D parcel-bundler@1.12.4 => zde nainstalujeme SW PARCEL a verzy jakou má MOSH v tutorialu.
+
+        Po instalaci pomocí kódu výše do terminálu nám vznikne složka node_modules obsahující stovky několik složek.
+        Tyto složky jsou bundly/knihovny jiných stran. Jsou zde, protože to co mi chceme použít (PARCEL BUNDLE) může být závislé
+        na jiné knihovně třetí strany.
+
+        V souboru package.json ve vlastnosti "devDependencies" je vidět na jakých souborech je závislý náš projekt.
+
+        DŮLEŽITÉ:
+        Aby se na GITHUB nenahrála složka node_modules obsahující přes 10 000 souborů, tak vytvoříme soubor
+        .gitignore a do něj napíšeme node_modules/ => tím říkáme že GIT by měl tyto změny ignorovat.
+
+        node_modules/.bin/parcel index.html - v .bin jsou spustitelné soubory a pomocí tohoto kódu spustíme SW PARCEL
+
+        npm i -g parcel-bundler - tímto nainstalujeme parcel globálně a mužeme volat parcel z jakékoliv složky v PC 
+        (tím se zbavujeme nutnosti chodin do node_modules/.bin/parcel, stačí napsat odkudkoliv parcel index.html 
+
+        po napsání parcel index.html nám běží stránka na virtuálním serveru na odkaze. 
+
+        PARCEL nám vytvořil 2 nové složky: dist a ..cache => tyto složky opět nechceme mít v GIT repositáři, tudíž
+        napíšeme do .gitignore "dist/" a ".cache/"
+
+        Pomocí CTRL + C vynpeme PARCEL server
+
+        Pomocí příkazu parcel build index.html spustíme builder - PARCEL.
+          - Vyskočila mi však chybová hláška "tree.render is not a function" která je spojitá s .SVG soubory
+          - Vyřešil jsem to vytvořením .htmlnanorc do které jsem napsal {  "minifySvg": false } - PŘÍKAZ POTÉ FUNGOVAL
+
+          PO SPUŠTĚNÍ PARCEL BUILDERU SE MINIMALIZOVAL KÓD A JE TO NYNÍ:
+          - index.html SPOJENÉ JAKO 1 STRING. 
+          - CSS je v jednom řádku.
+          - styles.css je ve vícero souborech a v názvu je přidán HASH - styles.4e3365cc.css & styles.b61e60ae.css 
+            to tak je kvůli cachování aby se pokaždé načetl nový soubor s jiným hashem po provedení změny, pokud 
+            bychom měli 1 soubor styles.css tak prohlížeč si to dá do cache paměti a ten soubor nenačte znovu ze serveru.
+
+            Po prvním příkazu parcel build index.html vznikli dvojí soubory - protože jsme byli ve vývoji (development build)
+            při spuštění PARCELU na webserveru. Tudíž ve složce dist byly souboru 2x (development build & production build).
+            Tuto složku jsem tedy odstranil a spustil příkaz znovu a byly zde soubory pouze 1x
 */
