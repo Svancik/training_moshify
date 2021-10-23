@@ -889,3 +889,82 @@ Plans block
     max-width: 700px;
   }
 }
+
+/* Footer */
+.footer {
+  background: #232323;
+}
+
+.footer__section {
+  padding: 2rem;
+  border-bottom: 1px solid #393939;
+}
+
+/* Defaultně je u listu od prohlížeče margin. Níže říkáme že pokud je v sekci footer list tak nemá žádný margin */
+.footer__section .list {
+  margin: 0;
+}
+
+/* je lepší vytvořit samostatnou třídu nežli použít .footer .collapsible__heading - protože při nepouziti .footer a budouci zmene to nebude fungovat */
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.footer__brand {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.footer__brand img {
+  /* TODO: Zvaž předělání a nastavení width:100% u všech obrázků */
+  width: 100%;
+  max-width: 230px;
+}
+
+.footer__copyright {
+  font-size: 2.1rem;
+  color: #fff;
+  opacity: 0.3;
+}
+
+.footer a {
+  color: #777;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__sections {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .footer .collapsible__chevron {
+    display: none;
+  }
+  .footer .collapsible__content {
+    opacity: 1;
+    max-height: 100%;
+  }
+
+  .footer__brand {
+    /* POMOCÍ VLASTNOSTI NÍŽE SE PŘESUNE LOGO KTERÉ NA MOBILU BYLO JAKO POSLEDNÍ NA PRVNÍ POZICI. order: -1; to hodí na začátek */
+    order: -1;
+    margin-top: 1rem;
+  }
+
+  .footer__copyright {
+    font-size: 1.5rem;
+  }
+
+  .footer__section {
+    border: none;
+  }
+
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+}
