@@ -1034,4 +1034,19 @@ BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před je
             Po prvním příkazu parcel build index.html vznikli dvojí soubory - protože jsme byli ve vývoji (development build)
             při spuštění PARCELU na webserveru. Tudíž ve složce dist byly souboru 2x (development build & production build).
             Tuto složku jsem tedy odstranil a spustil příkaz znovu a byly zde soubory pouze 1x
+
+
+            NAHRÁVÁNÍ STRÁNKY NA GIT-HUB:
+
+            1) Vytvoření repozitáře na GITHUBU
+            2) Zkopírování kódu níže.
+
+      Toto přidá vzdálený repozitář do našeho projektu (vzdálený = není na našem PC)
+      git remote add origin https://github.com/Svancik/training_moshify.git
+
+      Tímto přejmenujeme název defaultního kořene adresáře (branch) v gitu - název bude "main" (dříve to bylo "master")
+      git branch -M main
+
+      Pomocí kódu níže vložíme náš hlavní kořenový adresář (obsahující všechny soubory) - naší branch to mainu (což je repozitář na odkaze)
+      git push -u origin main
 */
