@@ -1048,5 +1048,11 @@ BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před je
       git branch -M main
 
       Pomocí kódu níže vložíme náš hlavní kořenový adresář (obsahující všechny soubory) - naší branch to mainu (což je repozitář na odkaze)
-      git push -u origin main
+      git push -u origin main.
+
+      KDYŽ PROVEDEME NĚJAKÉ ZMĚNY (po napojení na GIT) tak použijeme příkat "git push" a promítnou se na GITHUB.
+
+      Stránka https://www.netlify.com/ umožnuje nahrát stránky živě které jsou uloženy v GIT repozitáři.
+
+      Je nutné v 3. kroku "Create a new site" napsat Build command "parcel build index.html" a Publish directory "dist"
 */
