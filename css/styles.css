@@ -3,7 +3,7 @@
 /* FIXME: */
 
 /* Níže jsme provedli import pro zvýšení performance stránky aby se nemuseli načítat separátně 2 css soubory (nenačítají se v index) */
-@import ".normalize.css";
+@import "./normalize.css";
 
 :root {
   --color-primary: #2584ff;
