@@ -1,3 +1,4 @@
+/* CSS kód níže byl validován dle validátoru https://jigsaw.w3.org/css-validator/validator */
 /* TODO: */
 /* FIXME: */
 
@@ -216,7 +217,10 @@ a {
   justify-content: center;
   margin: 1rem 0;
   outline: 0;
-  padding: 2rem 3rem;
+  /* Níže jsme nepoužili jednotky rem pro padding tlačítka, protože při zobrazení na malém mobilním
+  displeji docházelo k tomu že tlačítko mělo příliš velký padding. Pomocí užití 4vw říkáme že padding
+  tlačítka by měl být 4% jednotky vizuální plochy - viewport */
+  padding: 2rem 4vw;
   text-align: center;
   text-transform: uppercase;
   transition: background-color, color, 0.35s;
@@ -312,6 +316,7 @@ a {
   border: 0;
   flex-grow: 1;
   padding: 1.5rem 2rem;
+  width: 0;
 }
 
 .input-group .button {
@@ -463,7 +468,7 @@ a {
   font-style: normal;
   font-size: 3rem;
   font-weight: 600;
-  letter-spacing: 0.5;
+  letter-spacing: 0.5px;
   margin-bottom: 0;
 }
 
@@ -790,8 +795,9 @@ a {
 }
 
 .block-domain__prices {
+  color: var(--color-headings);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 6rem);
   font-size: 2rem;
   font-weight: 600;
@@ -842,7 +848,7 @@ Plans block
 
 .feature {
   gap: 6rem 2rem;
-  margin: 12rem;
+  margin-bottom: 6rem;
 }
 
 .feature__heading {
@@ -968,3 +974,23 @@ Plans block
     font-size: 1.6rem;
   }
 }
+
+/* Než nasadíme stránku na webový server kde poběží tak je nutné provést následující:
+
+BUILDING FOR PRODUCTION:
+
+        a) Sjednotit soubory CSS a JS - tím se minimalizují HTTP požadavky
+        b) Minimalizovat JS/CSS soubory (zbavit se zbytečných mezer a komentářů) - soubory budou menší
+        c) Optimalizovat obrázky
+        
+BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před jejím uvedením do chodu:
+
+        a) WEBPACK (nejvíce používané ale složité na nastavení)
+        b) ROLLUP
+        c) PARCEL - webová aplikace (velmi jednoduché)
+
+        CTRL + ; => otevře terminál
+        npm => Node Package Manager (NPM) - pomocí toho lze instalovat balíčky třetích stran (tzv. "dependancies" neboli závislosti
+
+        npim init -y => inicializace (pomoci -y přeskočíme konfiguraci)
+*/
