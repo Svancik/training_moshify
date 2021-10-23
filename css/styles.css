@@ -347,6 +347,13 @@ a {
   background: #02cdf1;
 }
 
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
+.card--primary {
+}
+
 /* Plans */
 .plan__name {
   color: white;
@@ -385,6 +392,9 @@ a {
   position: absolute;
   top: -6px;
   right: 5%;
+}
+.plan {
+  transition: 0.2s ease-out;
 }
 
 .plan .list__item {
@@ -795,4 +805,34 @@ a {
     Takto si prohlížeč upraví dle libosti dostupné místo a můžeme tam přidat položku a zůstanou zachovány také v řadě vedle sebe. */
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
+}
+
+/* 
+NÍŽE JE MŮJ ŠPATNÝ POKUS O PROVEDENÍ KÓDU bez komentu 
+.plans-block { display: grid; grid-template-columns: 0.95fr 1.02fr 0.95fr;  justify-items: center; align-items: center; }
+.plans-block .plan--popular { width: 100%; }
+.plans-block .card:hover { transform: scaleY(1.15); transform: scaleX(1.03); margin-bottom: 3rem;}
+
+Plans block 
+
+*/
+/* Pomocí transform: scale(1.1) se zvýší velikost elementu o 10% */
+.plan--popular {
+  transform: scale(1.1);
+}
+
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+.plan--popular:hover {
+  transform: scale(1.15);
 }
