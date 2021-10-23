@@ -21,6 +21,11 @@
 
 /* Typography */
 
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
 html {
   /* Níže stanovíme font size na 10px */
   font-size: 62.5%;
@@ -48,10 +53,12 @@ h1 {
 
 h2 {
   font-size: 4rem;
+  text-align: center;
 }
 
 h3 {
   font-size: 3rem;
+  font-weight: 500;
 }
 
 p {
@@ -66,7 +73,7 @@ p {
     font-size: 8rem;
   }
   h2 {
-    font-size: 4rem;
+    font-size: 6rem;
   }
   h3 {
     font-size: 2.4rem;
@@ -82,6 +89,7 @@ a {
 .link-arrow {
   color: var(--color-accent);
   text-transform: uppercase;
+  font-weight: 800;
 }
 
 .link-arrow::after {
@@ -127,9 +135,6 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-  .badge {
-  }
-
   .badge--small {
     font-size: 1.2rem;
   }
@@ -140,7 +145,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0;
-  color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -149,6 +153,7 @@ a {
 }
 
 .list--tick {
+  color: var(--color-headings);
   list-style-image: url(../images/tick.svg);
   padding-left: 2rem;
 }
@@ -351,9 +356,6 @@ a {
   background: #126de4;
 }
 
-.card--primary {
-}
-
 /* Plans */
 .plan__name {
   color: white;
@@ -424,10 +426,12 @@ a {
 
 .media {
   display: flex;
+  margin-top: 2rem;
 }
 
 .media__title {
   margin-top: 0;
+  color: white;
 }
 
 .media__body {
@@ -649,6 +653,7 @@ a {
 
 .block__header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .block__heading {
@@ -660,20 +665,20 @@ a {
   color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: #fff;
 }
 
 .block--skewed-right {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 80%);
-}
-
-.block--skewed {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 90%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 .block--skewed-left {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 00% 100%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 00% 100%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 /* Navigation Bar */
@@ -751,10 +756,6 @@ a {
 }
 
 /* Hero */
-
-.hero {
-  clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 0% 100%);
-}
 
 .hero__tagline {
   font-size: 2rem;
@@ -835,4 +836,56 @@ Plans block
 }
 .plan--popular:hover {
   transform: scale(1.15);
+}
+
+/* Features */
+
+.feature {
+  gap: 6rem 2rem;
+  margin: 12rem;
+}
+
+.feature__heading {
+  /*       V   H */
+  margin: 1rem 0;
+}
+
+.feature__image {
+  width: 100%;
+}
+
+/* Kódem níže říkáme že první element třídy .feature má margin-top nižší - přepíšeme ho */
+.feature:first-of-type {
+  margin-top: 6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .feature:nth-of-type(even) .feature__content {
+    /* Pomocí order níže jsme přeházeli pořadí, říkáme tím že div.feature_content bude na sudém elementu.feature druhý v pořadí 
+    a tím se přesune doprava. */
+    order: 2;
+  }
+}
+
+/* Showcase */
+
+.block-showcase__image > img {
+  /* Nastavením width bude obrázek responzivní (na mobilu chceme) */
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    grid-template-columns: 50% 50%;
+  }
+  /* justify-self: end přišpendlí obrázek */
+  .block-showcase__image {
+    justify-self: end;
+  }
+
+  .block-showcase__image > img {
+    /* Nastavením width níže bude mít obrázek velikost defaultní */
+    width: auto;
+    max-width: 700px;
+  }
 }
