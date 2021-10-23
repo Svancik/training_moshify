@@ -1055,4 +1055,8 @@ BUILD TOOLS - aplikace umožnující modifikaci / optimalizaci stránky před je
       Stránka https://www.netlify.com/ umožnuje nahrát stránky živě které jsou uloženy v GIT repozitáři.
 
       Je nutné v 3. kroku "Create a new site" napsat Build command "parcel build index.html" a Publish directory "dist"
+
+      CHYBA PŘI DEPLOYING STRÁNKU NA NETLIFY - DOŘEŠIT!!!
+
+      https://app.netlify.com/sites/agitated-fermat-46d7a2/deploys/61745152387f630156056fb6
 */
